@@ -1,5 +1,5 @@
 import { Github, Linkedin, Mail, ArrowUpRight, MapPin } from "lucide-react";
-
+import Image from "next/image";
 const NAV = [
   { href: "#about", label: "About" },
   { href: "#experience", label: "Experience" },
@@ -57,11 +57,15 @@ const SKILLS = [
   },
   {
     label: "DevOps",
-    items: ["Jenkins", "GitHub Actions", "CI/CD", "Docker", "Kubernetes", "AWS"],
+    items: ["Jenkins", "Git", "GitHub Actions", "CI/CD", "Agile/Scrum", "Docker", "Kubernetes", "AWS"],
   },
   {
     label: "Auth & Security",
     items: ["JWT", "RBAC", "Spring Security"],
+  },
+  {
+    label: "Generative AI & LLMs",
+    items: ["OpenAI API", "Claude API", "LangChain", "LlamaIndex", "RAG", "Pinecone", "Prompt Engineering"],
   },
 ];
 
@@ -77,8 +81,8 @@ const PROJECTS = [
     title: "Smart Meeting Summarizer & Action Item Tracker",
     description:
       "Retrieval-augmented pipeline that transcribes meeting audio and generates structured summaries and action items, combining a vector-indexed knowledge base with LLM-based extraction.",
-    stack: ["Python", "FastAPI", "LangChain", "LlamaIndex", "Whisper API", "Pinecone", "PostgreSQL", "Docker"],
-    href: null,
+    stack: ["Python", "FastAPI", "LangChain", "LlamaIndex", "Whisper API", "Pinecone", "PostgreSQL", "Docker", "Angular.js"],
+    href: "https://github.com/naineesh9/smart-meeting-summarizer",
   },
   {
     title: "Wand Marketplace Platform",
@@ -91,16 +95,16 @@ const PROJECTS = [
 
 const EDUCATION = [
   {
-    school: "University of Memphis",
+    school: "TheUniversity of Memphis",
     degree: "M.S. in Computer Science",
     detail: "GPA 3.83 / 4.00",
-    range: "Completed May 2026",
+    range: "August 2024 — May 2026",
   },
   {
     school: "Vignan Institute of Technology and Science",
-    degree: "B.S. in Computer Science",
+    degree: "B. Tech in Computer Science",
     detail: "Affiliated with JNTUH",
-    range: "09/2020 — 06/2024",
+    range: "September 2020 — June 2024",
   },
 ];
 
@@ -141,7 +145,7 @@ export default function Home() {
       <section id="top" className="mx-auto max-w-content px-6 pb-20 pt-16 sm:pt-24">
         <p className="eyebrow mb-5">// SOFTWARE ENGINEER</p>
         <h1 className="reveal font-display text-5xl font-semibold leading-[1.05] tracking-tight sm:text-7xl">
-          Naineesh
+          Naineesh Reddy Bussannagari
         </h1>
         <p className="reveal mt-6 max-w-2xl text-lg leading-relaxed text-muted sm:text-xl" style={{ animationDelay: "0.1s" }}>
           Full-stack engineer building React interfaces, Spring Boot services, and the
@@ -162,9 +166,12 @@ export default function Home() {
           <span className="hidden text-line sm:inline">|</span>
           <span>MS COMPUTER SCIENCE</span>
           <span className="hidden text-line sm:inline">|</span>
-          <span>
-            F-1 OPT · STEM ELIGIBLE<span className="hidden sm:inline"> · FUTURE H-1B SPONSORSHIP REQUIRED</span>
-          </span>
+          <div className="flex flex-col gap-4 font-mono text-sm text-muted">
+              <div className="flex items-center gap-2">
+                <MapPin size={15} strokeWidth={1.75} />
+                <span>Memphis, TN</span>
+              </div>
+            </div>
         </div>
 
         <div className="reveal mt-10 flex flex-wrap items-center gap-4" style={{ animationDelay: "0.3s" }}>
@@ -194,11 +201,43 @@ export default function Home() {
         </div>
       </section>
 
+      {/* OPEN TO ROLES */}
+<section className="border-t border-line bg-panel">
+  <div className="mx-auto max-w-content px-6 py-16">
+    <p className="eyebrow mb-3">OPEN TO ROLES</p>
+    <p className="text-sm text-muted mb-8">Currently seeking full-time opportunities</p>
+    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {[
+        { title: "Backend Developer", tag: "API + Systems" },
+        { title: "Frontend Developer", tag: "UI + UX" },
+        { title: "Full Stack Developer", tag: "End-to-End" },
+        { title: "DevOps Engineer", tag: "Cloud + CI/CD" },
+      ].map((role) => (
+        <div key={role.title} className="rounded-xl border border-line bg-paper p-5">
+          <h3 className="font-display text-base font-semibold">{role.title}</h3>
+          <span className="mt-2 inline-block rounded-full bg-accentDim px-2.5 py-1 font-mono text-[11px] uppercase text-accent">
+            {role.tag}
+          </span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
       {/* ABOUT */}
       <section id="about" className="border-t border-line bg-panel">
         <div className="mx-auto max-w-content px-6 py-20">
           <SectionEyebrow index="01" label="About" />
           <div className="grid gap-10 sm:grid-cols-[1.4fr_1fr]">
+            {/* <div className="h-80 w-85 shrink-0 overflow-hidden rounded-2xl border border-line bg-paper sm:h-88 sm:w-88 lg:h-96 lg:w-96">
+              <Image
+                src="/profile.png"
+                alt="Naineesh"
+                width={352}
+                height={352}
+                className="h-full w-full object-cover"
+              />
+            </div> */}
             <p className="max-w-2xl text-lg leading-relaxed text-ink/85">
               I&apos;m a full-stack software engineer with 2+ years of experience shipping
               production systems — from React interfaces to Spring Boot services handling
@@ -208,21 +247,13 @@ export default function Home() {
               Science from the University of Memphis and a B.Technology in Computer Science from Vignan
               Institute of Technology and Science.
             </p>
-            <div className="flex flex-col gap-4 font-mono text-sm text-muted">
-              <div className="flex items-center gap-2">
-                <MapPin size={15} strokeWidth={1.75} />
-                <span>Memphis, TN</span>
-              </div>
-              <div>Available for full-time Software Engineer roles</div>
-              <div>Future H-1B sponsorship required</div>
-            </div>
           </div>
         </div>
       </section>
 
       {/* EXPERIENCE */}
       <section id="experience" className="mx-auto max-w-content px-6 py-20">
-        <SectionEyebrow index="02" label="Experience" />
+        <SectionEyebrow index="02" label="Work Experience" />
         <div className="mt-4 flex flex-col divide-y divide-line border-t border-line">
           {EXPERIENCE.map((job) => (
             <div key={job.org} className="grid gap-3 py-8 sm:grid-cols-[220px_1fr]">
